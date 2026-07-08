@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صفحة تذكارية</title>
+<style>
+    body{
+        margin:0;
+        min-height:100vh;
+        background:#000;
+        color:#fff;
+        font-family:Tahoma,sans-serif;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        padding:20px;
+        box-sizing:border-box;
+    }
+    img{
+        max-width:320px;
+        width:100%;
+        border-radius:12px;
+        margin-bottom:20px;
+    }
+    #dove{
+        font-size:60px;
+        cursor:pointer;
+        user-select:none;
+    }
+    #text{
+        margin-top:20px;
+        max-width:800px;
+        line-height:2;
+        font-size:20px;
+        text-align:center;
+        white-space:pre-wrap;
+    }
+</style>
+</head>
+<body>
+
+<img src="photo.jpg" alt="الصورة">
+
+<div id="dove">🕊️</div>
+
+<div id="text"></div>
+
+<script>
+const msg = "ندعوكم أولًا إلى قراءة الفاتحة والدعاء بالرحمة والمغفرة لروح الأستاذ السيد طه، سائلين الله أن يتغمده بواسع رحمته وأن يجعل علمه وعمله الصالح في ميزان حسناته. ونحيط حضراتكم علمًا بأن الأستاذ زايد العشيري قد أطلق كورسًا مجانيًا إهداءً لروح الأستاذ السيد طه، رغبةً في استمرار أثر العلم والخير. نسأل الله أن يبارك في هذا العمل، وأن ينفع به جميع الطلاب، وأن يجزي القائمين عليه خير الجزاء.";
+let started = false;
+
+document.getElementById("dove").onclick = function () {
+    if (started) return;
+    started = true;
+
+    let i = 0;
+    const timer = setInterval(() => {
+        document.getElementById("text").textContent += msg[i];
+        i++;
+        if (i >= msg.length) clearInterval(timer);
+    }, 40);
+};
+</script>
+
+</body>
+</html>
